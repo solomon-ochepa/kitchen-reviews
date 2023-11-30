@@ -13,6 +13,10 @@ class ReviewController extends Controller
 
     function create()
     {
-        return ("review.create"); 
+        $data['title'] = "Create Review";
+
+     dd($data);
+
+        return view("review.create", $data);
     }
 }

@@ -1,9 +1,11 @@
 <x-guest-layout>
-    <div
+    <div>
         class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
         @if (Route::has('login'))
             <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                 @auth
+                    <link rel="stylesheet" href="fontawesome-6.4.2-web/css/fontawesome.min.css">
+                    <link rel="stylesheet" href="bootstrap-5.3.1-dist/css/bootstrap.min.css">
                     <a href="{{ url('/dashboard') }}"
                         class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
                 @else
@@ -37,37 +39,34 @@
                                         <label for="">Name</label>
                                         <input type="text" name="name" placeholder="name" required>
                                     </div>
-                                    <br>
+
                                     <div>
                                         <label for="">Date</label>
                                         <input type="date-int" name="date" placeholder="date" required>
                                     </div>
-                                    <br>
+
                                     <div>
                                         <label for="">Meal</label>
                                         <input type="text" name="meal" placeholder="meal">
                                     </div>
-                                    <br>
+
                                     <div>
                                         <textarea name="note" id="" cols="50" rows="5" placeholder="Note"></textarea>
                                     </div>
-                                    <br>
+
                                     <div>
                                         <label for="">Rate</label>
-                                        <select name="rate" id="rate">
-                                            <option value="1.2.3.4.5">
-                                                select
+                                        <select name="rate" id="rate" required>
+                                            <option value="">
+                                                select a rate
                                             </option>
-                                            <?php
-                                                for ($i = 1; $i <= 5; $i++) {
-                                                ?>
-                                            <option value="1.2.3.4.5"><?= $i ?></option>
-                                            <?php
-                                                }
-                                                ?>
+                                            @for ($i = 1; $i <= 5; $i++)
+                                                <option value="{{ $i }}">{{ $i }}</option>
+                                            @endfor
+
                                         </select>
                                     </div>
-                                    <br>
+
                                     <div>
                                         <input type="submit" value="Submit Review">
                                     </div>
