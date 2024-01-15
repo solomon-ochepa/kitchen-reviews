@@ -11,10 +11,10 @@ test('profile page is displayed', function () {
     $response = $this->get('/profile');
 
     $response
-        ->assertOk()
         ->assertSeeVolt('profile.update-profile-information-form')
         ->assertSeeVolt('profile.update-password-form')
-        ->assertSeeVolt('profile.delete-user-form');
+        ->assertSeeVolt('profile.delete-user-form')
+        ->assertOk();
 });
 
 test('profile information can be updated', function () {

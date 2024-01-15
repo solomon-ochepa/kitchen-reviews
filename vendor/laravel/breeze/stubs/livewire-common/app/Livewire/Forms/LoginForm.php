@@ -7,18 +7,18 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
-use Livewire\Attributes\Validate;
+use Livewire\Attributes\Rule;
 use Livewire\Form;
 
 class LoginForm extends Form
 {
-    #[Validate('required|string|email')]
+    #[Rule('required|string|email')]
     public string $email = '';
 
-    #[Validate('required|string')]
+    #[Rule('required|string')]
     public string $password = '';
 
-    #[Validate('boolean')]
+    #[Rule('boolean')]
     public bool $remember = false;
 
     /**
